@@ -30,7 +30,7 @@ class HomeController extends Controller
                 $gallery->save();
             }
         }
-        return back();
+        return back()->with('status', 'The image was uploaded.');
     }
 
     public function destroy($id)
@@ -38,7 +38,7 @@ class HomeController extends Controller
         $gallery = Gallery::find($id);
         Storage::delete('upload/' . $gallery->name);
         $gallery->delete();
-        return back();
+        return back()->with('status', 'The image was deleted.');;
     }
 
     public function download($id)
