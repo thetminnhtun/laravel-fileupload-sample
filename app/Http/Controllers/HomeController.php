@@ -16,6 +16,10 @@ class HomeController extends Controller
 
     public function store(Request $request)
     {
+        $request->validate([
+            'image' => 'required',
+            'image.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
+        ]);
         if($request->hasFile('image')) {
             foreach($request->file('image') as $image) {
                 $filename = time() . '_' . $image->getClientOriginalName();
