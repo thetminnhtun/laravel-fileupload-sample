@@ -28,4 +28,18 @@ class HomeController extends Controller
         }
         return back();
     }
+
+    public function destroy($id)
+    {
+        $gallery = Gallery::find($id);
+        Storage::delete('upload/' . $gallery->name);
+        $gallery->delete();
+        return back();
+    }
+
+    public function download($id)
+    {
+        $gallery = Gallery::find($id);
+        return Storage::download('upload/' . $gallery->name);
+    }
 }

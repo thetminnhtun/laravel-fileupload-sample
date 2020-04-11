@@ -20,10 +20,15 @@
     </div>
     <div class="row mt-5">
         @foreach ($galleries as $gallery)
-            <div class="col-md-3 mb-4">
+            <div class="col-md-6 mb-4">
                 <div class="card">
                     <div class="card-body p-0">
                         <img class="img-fluid" src="{{ asset('upload/' . $gallery->name ) }}" alt="">
+                    </div>
+                    <div class="card-footer">
+                        <a href="{{ asset('upload/' . $gallery->name ) }}" target="_blank" class="btn btn-info">View</a>
+                        <a href="{{ route('home.download', $gallery->id) }}" class="btn btn-success">Download</a>
+                        <a href="{{ route('home.destroy', $gallery->id) }}" class="btn btn-danger float-right">Delete</a>
                     </div>
                 </div>
             </div>
