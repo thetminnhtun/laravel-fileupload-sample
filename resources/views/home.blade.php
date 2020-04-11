@@ -18,5 +18,16 @@
             </form>
         </div>
     </div>
+    <div class="row mt-5">
+        @foreach ($galleries as $gallery)
+            <div class="col-md-3 mb-4">
+                <div class="card">
+                    <div class="card-body p-0">
+                        <img class="img-fluid" src="{{ asset('upload/' . $gallery->name ) }}" alt="">
+                    </div>
+                </div>
+            </div>
+        @endforeach
+    </div>
 </div>
 @endsection
