@@ -14,9 +14,12 @@ class HomeController extends Controller
 
     public function store(Request $request)
     {
-        $filename = time() . '_' . $request->file('image')->getClientOriginalName();
-        // $request->file('image')->move(public_path('image'), $filename);
-        $request->file('image')->storeAs('upload', $filename);
+        if($request->hasFile('image')) {
+            foreach($request->file('image') as $image) {
+                $filename = time() . '_' . $image->getClientOriginalName();
+                $image->storeAs('upload', $filename);
+            }
+        }
         return back();
     }
 }
