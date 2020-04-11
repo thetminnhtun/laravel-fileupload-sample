@@ -8,7 +8,7 @@
                 @csrf
                 <div class="input-group">
                     <div class="custom-file">
-                        <input type="file" class="custom-file-input">
+                        <input type="file" name="image" class="custom-file-input">
                         <label class="custom-file-label">Choose file</label>
                     </div>
                     <div class="input-group-append">
